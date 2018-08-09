@@ -1,10 +1,10 @@
 # README
-*Clone GitHub project
+* Clone GitHub project
 * Install Composer Dependencies:
 $ composer install
 * Install NPM Dependencies:
 $ npm install
-*Create an empty database for our application
+* Create an empty database for our application
 * You should create a new .env settings file based on the information contained in .env.example. The default database is pgsql.
 * In the config/database file you should change the default database to pgsql. So, to confirm the changes, you must run: 
 $ php artisan migrate
