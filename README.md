@@ -24,58 +24,58 @@ $ npm install
 	O sistema foi desenvolvido utilizando a versão 5.6 do Laravel.
 # Funcionalidades
 As funcionalidades são divididas em duas visões:
-*Administrador:
-**Cadastrar Funcionário
-**Ecluir Funcionário
-**Cadastrar Administrador
-**Excluir Administrador
-**Listagem de Funcionários
-**Listagem de Administradores
-**Listagem dos registros de cada funcionário
-**Listagem dos registros de todos os funcionários
-*Funcionário
-**Bater ponto de entrada na empresa  
-**Bater ponto de saída na empresa 
-**Bater ponto de ida para almoço 
-**Bater ponto de retorno do almoço
-**Bater ponto para intervalo 
-**Bater ponto para retorno do intervalo
+* Administrador:
+** Cadastrar Funcionário
+** Ecluir Funcionário
+** Cadastrar Administrador
+** Excluir Administrador
+** Listagem de Funcionários
+** Listagem de Administradores
+** Listagem dos registros de cada funcionário
+** Listagem dos registros de todos os funcionários
+* Funcionário
+** Bater ponto de entrada na empresa  
+** Bater ponto de saída na empresa 
+** Bater ponto de ida para almoço 
+** Bater ponto de retorno do almoço
+** Bater ponto para intervalo 
+** Bater ponto para retorno do intervalo
 
 Na tela do funcionário são apresentados dois campos:
-*Nome do Funcionário
-*Tipo de ponto
+* Nome do Funcionário
+* Tipo de ponto
 
 O funcionário deve escolher seu nome e o tipo de ponto a ser batido. 
 O campo Tipo de ponto os usuário têm as opções:
-*Diário(ponto de entrada e saída da empresa)
-*Almoço(ponto de entrada e saída para o almoço)
-*intervalo(ponto de entrada e saída do intervalo)
+* Diário(ponto de entrada e saída da empresa)
+* Almoço(ponto de entrada e saída para o almoço)
+* Intervalo(ponto de entrada e saída do intervalo)
 
 A primeira vez que o funcionário escolhe um determinado tipo de ponto ele esta registrando o horário de início do ponto. Ao escolher pela segunda o mesmo ponto o funcionário esta escolhendo o horário final do ponto.
 
 ##Tabelas
 
-*Usuário (user)
-**Nome
-**Email
-**Matrícula
+* Usuário (user)
+** Nome
+** Email
+** Matrícula
 
-*Ponto do dia (time_day)
-**Usuário
-**Data
+* Ponto do dia (time_day)
+** Usuário
+** Data
 
-*Ponto (time)
-**Ponto do dia
-**Horário inicial
-**Horário final
-**Tipo de Ponto(Diário,Intervalo,Almoço)
-**Status
+* Ponto (time)
+** Ponto do dia
+** Horário inicial
+** Horário final
+** Tipo de Ponto(Diário,Intervalo,Almoço)
+** Status
 
 ## Dependências do Projeto
-*axios: ^0.18
-*bootstrap: ^4.0.0
-*cross-env: ^5.1
-*gulp": 3.9.1
-*jquery": 3.2
-*laravel-elixir: ^6.0.0-18
-*laravel-mix: ^2.0
+* axios: ^0.18
+* bootstrap: ^4.0.0
+* cross-env: ^5.1
+* gulp": 3.9.1
+* jquery": 3.2
+* laravel-elixir: ^6.0.0-18
+* laravel-mix: ^2.0
