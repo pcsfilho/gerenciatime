@@ -56,20 +56,20 @@ A primeira vez que o funcionário escolhe um determinado tipo de ponto ele esta 
 ## Tabelas
 
 * Usuário (user)
-- Nome
-- Email
-- Matrícula
+	- Nome
+	- Email
+	- Matrícula
 
 * Ponto do dia (time_day)
-- Usuário
-- Data
+	- Usuário
+	- Data
 
 * Ponto (time)
-- Ponto do dia
-- Horário inicial
-- Horário final
-- Tipo de Ponto(Diário,Intervalo,Almoço)
-- Status
+	- Ponto do dia
+	- Horário inicial
+	- Horário final
+	- Tipo de Ponto(Diário,Intervalo,Almoço)
+	- Status
 
 ## Dependências do Projeto
 * axios: ^0.18
