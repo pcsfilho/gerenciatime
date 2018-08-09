@@ -80,3 +80,7 @@ A primeira vez que o funcionário escolhe um determinado tipo de ponto ele esta 
 * jquery": 3.2
 * laravel-elixir: ^6.0.0-18
 * laravel-mix: ^2.0
+
+## Funcionalidades Futuras
+* Adicionar busca por semana, mês e ano na visualização dos registros
+* Adicionar login para usuário administrador
