@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTimerDaysTable extends Migration
+class CreateTimeDaysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTimerDaysTable extends Migration
      */
     public function up()
     {
-        Schema::create('timer_days', function (Blueprint $table) {
+        Schema::create('time_days', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -29,6 +29,6 @@ class CreateTimerDaysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('timer_days');
+        Schema::dropIfExists('time_days');
     }
 }

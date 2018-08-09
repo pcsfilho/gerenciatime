@@ -26,7 +26,6 @@
                   <th>Nome</th>
                   <th>Matrícula</th>
                   <th style="text-align:center">Registros</th>
-                  <th style="text-align:center">Editar</th>
                   <th style="text-align:center">Deletar</th>
                 </tr>
                 </thead>
@@ -37,11 +36,10 @@
                       <td>{{$employee->name}}</td>
                       <td>{{$employee->registration}}</td>
                       <td style="text-align:center">
-                        <a href="">
+                        <a href="{{route('employee.register.list', $employee->id)}}">
                           <span class="glyphicon glyphicon-calendar"></span>
                         </a>
                       </td>
-                      <td style="text-align:center"><a href="{{route('employee.edit',$employee->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
                       <td style="text-align:center">
                         <form id="delete-form-{{$employee->id}}" style="display: none;" action="{{route('employee.destroy',$employee->id)}}" method="POST">
                           @csrf
@@ -66,7 +64,6 @@
                   <th>Nome</th>
                   <th>Matrícula</th>
                   <th style="text-align:center">Registros</th>
-                  <th style="text-align:center">Editar</th>
                   <th style="text-align:center">Deletar</th>
                 </tr>
                 </tfoot>

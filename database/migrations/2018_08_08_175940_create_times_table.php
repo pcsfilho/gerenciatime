@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTimerTable extends Migration
+class CreateTimesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateTimerTable extends Migration
      */
     public function up()
     {
-        Schema::create('timer', function (Blueprint $table) {
+        Schema::create('times', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('timer_days_id')->unsigned()->nullable();
-            $table->foreign('timer_days_id')->references('id')->on('timer_days')->onDelete('cascade');
+            $table->integer('time_days_id')->unsigned()->nullable();
+            $table->foreign('time_days_id')->references('id')->on('time_days')->onDelete('cascade');
             $table->time('time_start')->nullable();
             $table->time('time_end')->nullable();
-            $table->enum('level', ['job','lunch','time_break']);
+            $table->enum('type_time', ['job','lunch','time_break']);
             $table->boolean('status')->default(false);
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -32,6 +33,6 @@ class CreateTimerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('timer');
+        Schema::dropIfExists('times');
     }
 }

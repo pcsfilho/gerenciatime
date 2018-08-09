@@ -45,7 +45,7 @@ class AdminController extends Controller
         $user->password = bcrypt($request->password);
         $user->level = 'admin';
         $user->save();
-        return redirect(route('admin.admin.list'));
+        return redirect(route('admin.list'));
     }
 
     /**

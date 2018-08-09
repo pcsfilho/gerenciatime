@@ -31,13 +31,16 @@ Route::group(['namespace' => 'Admin'], function(){
     Route::put('admin/employees/{employee}','EmployeerController@update')->name('employee.update');
     Route::post('/admin/employees/store','EmployeeController@store')->name('employee.store');
     Route::delete('admin/employees/{employee}','EmployeeController@destroy')->name('employee.destroy');
+    Route::get('/admin/employees/{employee}/registers','TimeController@registersByUser')->name('employee.register.list');
     /////////////
     //Registers//
     ////////////
-    Route::get('/admin/registers','TimerController@index')->name('register.list');
+    Route::get('/admin/registers','TimeController@index')->name('register.list');
+
 });
 
 Route::group(['namespace' => 'User'], function(){
 	Route::get('/','HomeController@index')->name('home');
 	Route::post('/store','HomeController@storetimer')->name('home.store');
+	Route::post('user/time/{user_id}', 'HomeController@method');
 });

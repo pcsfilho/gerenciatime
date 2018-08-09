@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="csrf-token" content="{{ csrf_token() }}">
           <title>GerenciaTimer</title>
           <!-- Tell the browser to be responsive to screen width -->
           <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -44,9 +45,9 @@
                 <div class="row">
                   <div class="col-lg-6 col-lg-offset-3">
                       <div class="form-group">
-                      <label for="name">Nome</label>
+                      <label for="name">Selecione o Funcionário</label>
                       <select class="form-control" onchange="changeStatusEmployee();" id="employee" name="employee">
-                        <option value="">Selecione o Funcionário</option>
+                        <option></option>
                         @foreach($users as $user)
                         <option value="{{$user->id}}">{{$user->name}}</option>
                         @endforeach
@@ -82,8 +83,8 @@
 
             <div class="info-box-content">
                 <span class="info-box-text text-center">Diário</span>
-                <span class="info-box-number">Início: Hora</span>
-                <span class="info-box-number">Fim: Hora</span>
+                <span class="info-box-number">Início: <span id="startjob"></span></span>
+                <span class="info-box-number">Fim: <span id="endjob"></span></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -92,8 +93,8 @@
 
             <div class="info-box-content">
                 <span class="info-box-text text-center">Intervalo</span>
-                <span class="info-box-number">Início: Hora</span>
-                <span class="info-box-number">Fim: Hora</span>
+                <span class="info-box-number">Início: <span id="startbreak"></span></span>
+                <span class="info-box-number">Fim: <span id="endbreak"></span></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -102,8 +103,8 @@
 
             <div class="info-box-content">
                 <span class="info-box-text text-center">Almoço</span>
-                <span class="info-box-number">Início: Hora</span>
-                <span class="info-box-number">Fim: Hora</span>
+                <span class="info-box-number">Início: <span id="startlunch"></span></span>
+                <span class="info-box-number">Fim: <span id="endlunch"></span></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -126,6 +127,11 @@
 
 <script>
    $(document).ready(function() {
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
         // Update the count down every 1 second
         var x = setInterval(function() {
 
@@ -156,7 +162,7 @@
         mm = '0'+mm
     } 
 
-    today = mm + '/' + dd + '/' + yyyy;
+    today = dd + '/' + mm + '/' + yyyy;
     // Display the result in the element with id="demo"
       document.getElementById("date").innerHTML = today;
     });
@@ -165,11 +171,43 @@
 
     function changeStatusEmployee()
     {
-        //var para = document.createElement("p");
-        //var node = document.createTextNode("This is new.");
-        //para.appendChild(node);
-        //var element = document.getElementById("div1");
-        //element.appendChild(para);
+        var user_id = $( "#employee" ).val();
+        var data = { value : user_id};
+        $.ajax({
+          headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          url: '/user/time/' + user_id,
+          dataType : 'json',
+          type: 'POST',
+          data: data,
+          contentType: false,
+          processData: false,
+          success:function(response){
+            if(response){
+                console.log(response);
+                for (var i=0; i<response.length; i++) {
+                    if('job'== response[i].type_time){
+                        if(response[i].time_end!=null)
+                            document.getElementById("startjob").innerHTML = " "+response[i].time_start;
+                        if(response[i].time_end!=null)
+                            document.getElementById("endjob").innerHTML = " "+response[i].time_end;
+                    }else if('lunch' == response[i].type_time){
+                        if(response[i].time_start!=null)
+                            document.getElementById("startlunch").innerHTML = " "+response[i].time_start;
+                        if(response[i].time_end!=null)
+                            document.getElementById("endlunch").innerHTML = " "+response[i].time_end;
+                    }else{
+                        if(response[i].time_end!=null)
+                            document.getElementById("startbreak").innerHTML = " "+response[i].time_start;
+                        if(response[i].time_end!=null)
+                            document.getElementById("endbreak").innerHTML = " "+response[i].time_end;
+                    }
+                    
+                }
+            }            
+          }
+     });
     } 
     
 </script>

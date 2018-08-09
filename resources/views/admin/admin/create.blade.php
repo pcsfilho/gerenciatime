@@ -7,8 +7,8 @@
         Cadastrar Administrador
       </h1>
       <ol class="breadcrumb">
-      <li><a href="{{--route('admin')--}}"><i class="fa fa-dashboard"></i>GerenciaTimer Admin</a></li>
-        <li><a href="{{--route('admin.categories')--}}">Usuários</a></li>
+      <li><a href="{{route('employee.list')}}"><i class="fa fa-dashboard"></i>GerenciaTimer Admin</a></li>
+        <li><a href="{{route('admin.list')}}">Administradores</a></li>
         <li class="active">Criar</li>
       </ol>
     </section>
@@ -21,7 +21,7 @@
           <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{--route('admin.category.store')--}}" method="POST">
+            <form role="form" action="{{route('admin.store')}}" method="POST">
               @csrf
 
               <div class="box-body">

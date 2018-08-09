@@ -5,8 +5,7 @@
         <ol class="breadcrumb">
           <li><a href="{{route('employee.list')}}"><i class="fa fa-dashboard"></i>GerenciaTimer Admin</a></li>
           <li ><a href="{{route('employee.list')}}">Funcionários</a></li>
-          <li >{{$user->name}}</li>
-          <li class="active">Registro</li>
+          <li class="active">Registros</li>
         </ol>
       </section>
       <br>
@@ -32,28 +31,26 @@
                 </tr>
                 </thead>
                 <tbody>
-                  @if(@$times!=null)
-                    @foreach($times as $time)
-                      <a href="#">
-                      <tr>
-                        <td>{{$loop->index + 1}}</td>
-                        <td>{{$time->user()->name}}</td>
-                        <td>
-                          @if($time->type_time=='job')
-                            Diário
-                          @elseif($time->type_time=='lunch')
-                            Almoço
-                          @else
-                            Intervalo
-                          @endif
-                        </td>
-                        <td>{{$time->timeday()->date}}</td>
-                        <td>{{$time->time_start}}</td>
-                        <td>{{$time->time_end}}</td>
-                      </tr>
-                      </a>
-                    @endforeach
-                  @endif
+                  @foreach($times as $time)
+                    <a href="#">
+                    <tr>
+                      <td>{{$loop->index + 1}}</td>
+                      <td>{{$time->user()->name}}</td>
+                      <td>
+                        @if($time->type_time=='job')
+                          Diário
+                        @elseif($time->type_time=='lunch')
+                          Almoço
+                        @else
+                          Intervalo
+                        @endif
+                      </td>
+                      <td>{{$time->timeday()->date}}</td>
+                      <td>{{$time->time_start}}</td>
+                      <td>{{$time->time_end}}</td>
+                    </tr>
+                    </a>
+                  @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
