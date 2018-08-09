@@ -25,21 +25,21 @@ $ npm install
 # Funcionalidades
 As funcionalidades são divididas em duas visões:
 * Administrador:
-** Cadastrar Funcionário
-** Ecluir Funcionário
-** Cadastrar Administrador
-** Excluir Administrador
-** Listagem de Funcionários
-** Listagem de Administradores
-** Listagem dos registros de cada funcionário
-** Listagem dos registros de todos os funcionários
+1. Cadastrar Funcionário
+2. Ecluir Funcionário
+3. Cadastrar Administrador
+4. Excluir Administrador
+5. Listagem de Funcionários
+6. Listagem de Administradores
+7. Listagem dos registros de cada funcionário
+8. Listagem dos registros de todos os funcionários
 * Funcionário
-** Bater ponto de entrada na empresa  
-** Bater ponto de saída na empresa 
-** Bater ponto de ida para almoço 
-** Bater ponto de retorno do almoço
-** Bater ponto para intervalo 
-** Bater ponto para retorno do intervalo
+9. Bater ponto de entrada na empresa  
+10. Bater ponto de saída na empresa 
+11. Bater ponto de ida para almoço 
+12. Bater ponto de retorno do almoço
+13. Bater ponto para intervalo 
+14. Bater ponto para retorno do intervalo
 
 Na tela do funcionário são apresentados dois campos:
 * Nome do Funcionário
@@ -53,23 +53,23 @@ O campo Tipo de ponto os usuário têm as opções:
 
 A primeira vez que o funcionário escolhe um determinado tipo de ponto ele esta registrando o horário de início do ponto. Ao escolher pela segunda o mesmo ponto o funcionário esta escolhendo o horário final do ponto.
 
-##Tabelas
+## Tabelas
 
 * Usuário (user)
-** Nome
-** Email
-** Matrícula
+- Nome
+- Email
+- Matrícula
 
 * Ponto do dia (time_day)
-** Usuário
-** Data
+- Usuário
+- Data
 
 * Ponto (time)
-** Ponto do dia
-** Horário inicial
-** Horário final
-** Tipo de Ponto(Diário,Intervalo,Almoço)
-** Status
+- Ponto do dia
+- Horário inicial
+- Horário final
+- Tipo de Ponto(Diário,Intervalo,Almoço)
+- Status
 
 ## Dependências do Projeto
 * axios: ^0.18
