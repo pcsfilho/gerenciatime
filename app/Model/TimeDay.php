@@ -18,7 +18,6 @@ class TimeDay extends Model
         return $this->hasMany('App\Model\Time','time_days_id')->get();
     }
 
-
     public function timebytype($type)
     {
         if($this->times()!=null)

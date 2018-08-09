@@ -38,18 +38,25 @@
           <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
+            
             <form role="form" action="{{route('home.store')}}" method="POST">
               @csrf
 
               <div class="box-body">
                 <div class="row">
                   <div class="col-lg-6 col-lg-offset-3">
+                     @if($errors->any())
+                        <div class="form-group">
+                            <h1 class="help-block" style="color:red">{{$errors->first()}}</h2>
+                        </div>
+                            
+                        @endif 
                       <div class="form-group">
                       <label for="name">Selecione o Funcionário</label>
                       <select class="form-control" onchange="changeStatusEmployee();" id="employee" name="employee">
                         <option></option>
                         @foreach($users as $user)
-                        <option value="{{$user->id}}">{{$user->name}}</option>
+                            <option value="{{$user->id}}">{{$user->name}}</option>
                         @endforeach
                     </select>
                     </div>
@@ -71,9 +78,8 @@
               </div>
               <!-- /.box-body -->
             </form>
-            <div id="div1">
-                
-            </div>
+            
+                   
           </div>
         <!-- /.col-->
       </div>
@@ -83,8 +89,14 @@
 
             <div class="info-box-content">
                 <span class="info-box-text text-center">Diário</span>
-                <span class="info-box-number">Início: <span id="startjob"></span></span>
-                <span class="info-box-number">Fim: <span id="endjob"></span></span>
+                <span class="info-box-number">
+                    Início: 
+                    <span id="startjob"></span>
+                </span>
+                <span class="info-box-number">
+                    Fim: 
+                    <span id="endjob"></span>
+                </span>
             </div>
             <!-- /.info-box-content -->
           </div>
