@@ -19,6 +19,7 @@
             <div class="box-header with-border">
               <h3 class="box-title">Registros</h3>
             </div>
+            
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped" >
                 <thead>

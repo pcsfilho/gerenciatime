@@ -77,6 +77,7 @@
 @endsection
 @section('footerpage')
   <script>
+    
     $(function () {
       $('#example1').DataTable({
         'paging'      : true,

@@ -41,6 +41,7 @@ As funcionalidades são divididas em duas visões:
 13. Bater ponto para intervalo 
 14. Bater ponto para retorno do intervalo
 
+A visão do administrador deve ser acessada pela urls \admin
 Na tela do funcionário são apresentados dois campos:
 * Nome do Funcionário
 * Tipo de ponto
