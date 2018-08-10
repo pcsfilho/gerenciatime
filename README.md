@@ -8,7 +8,7 @@ $ npm install
 * Deve criar um arquivo de configuração .env baseado no arquivo .env.example. O banco de dados padrão é o pgsql.
 * No arquivo config/database.php deve-se mudar o banco de dados padrão para pgsql. Então deve-se rodar o comando: 
 $ php artisan migrate
-* Rodas os seeds para o banco de dados:
+* Rodar os seeds para o banco de dados:
 $ php artisan db:seed
 * Você deve gerar uma chave para a aplicação: 
 $ php artisan key:generate
